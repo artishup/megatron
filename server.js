@@ -1,5 +1,5 @@
 const express = require('express');
-const resize = require('./resize');
+const resize = require('./src/resize');
 
 const server = express();
 
@@ -22,7 +22,7 @@ server.get('/', (req, res) => {
   res.type(`image/${format || 'png'}`);
 
   // Get the resized image
-  resize('nodejs.png', format, width, height).pipe(res)
+  resize('public/images/nodejs.png', format, width, height).pipe(res);
 });
 
 server.listen(8000, () => {
